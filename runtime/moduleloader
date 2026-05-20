@@ -34,8 +34,9 @@ local loadDynamicFlags() {
     sed -e "s/ *# *f-> *//g" | \
     tr ' ' '\n' | \
     awk '!/^[[:space:]]*$/')"
-  if [[ $flag =~ " *" ]] ; then
+  if ! [[ -z $flag ]] ; then
     _dot_dynamic_flags+=$flag
+    _dot_dynamic_flags+="\n"
   fi
 }
 
