@@ -24,3 +24,13 @@ sudo() {
   unset _SUDO_PASS_ACT_AS_ASKSCRIPT
   return $ret
 }
+
+sudoedit() {
+  actualSudo='/usr/bin/sudoedit'
+  export _SUDO_PASS_ACT_AS_ASKSCRIPT=1
+  SUDO_ASKPASS=$_SUDO_PASS_PATH_TO_SCRIPT \
+  $actualSudo -A "$@"
+  local ret=$?
+  unset _SUDO_PASS_ACT_AS_ASKSCRIPT
+  return $ret
+}
