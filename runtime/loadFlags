@@ -1,10 +1,8 @@
 #!/bin/zsh
 
 local flagConfigFile=$1
-local validFlags=$( cat $(printRelativePath LIST_OF_FLAGS) | tr '\n' ' ' )
 
 processRelativePath logger debug ------------------ new session --------------------
-processRelativePath logger debug valid flags : ${validFlags[@]}
 
 #load silent flag first
 if [[ $( cat $flagConfigFile | grep "SILENT_LOG" ) ]] ; then
@@ -15,12 +13,8 @@ while IFS= read -r flag; do
   if [[ -z $flag ]] ; then
     continue 
   fi
-  if [[ "${validFlags[@]}" =~ ".*$flag.*" ]]; then
-    export $flag=1
-    processRelativePath logger debug loaded flag : \"$flag\"
-  else
-    processRelativePath logger warn invalid flag : \"$flag\"
-  fi
+  export $flag=1
+  processRelativePath logger debug loaded flag : \"$flag\"
 done < $flagConfigFile
 
 processRelativePath logger debug loaded flags at : $flagConfigFile
