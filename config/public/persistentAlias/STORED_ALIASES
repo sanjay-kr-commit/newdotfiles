@@ -47,6 +47,6 @@ builtin alias globurl=noglob\ urlglobber\
 builtin alias rebuildKwinPlugin=yay\ -S\ \$\(ls\ /usr/lib/qt6/plugins/kwin/effects/plugins\ \|\ xargs\ -I\ \{\}\ pacman\ -Qoq\ /usr/lib/qt6/plugins/kwin/effects/plugins/\{\}\)\ --rebuild\ --noconfirm
 builtin alias rsf=faillock\ --user\ \$USER\ --reset
 builtin alias updateMirror=sudo\ reflector\ --protocol\ https\ --verbose\ --latest\ 25\ --sort\ rate\ --save\ /etc/pacman.d/mirrorlist\ \&\&\ yay\ -Syyu
-builtin alias pretifyPWD=find\ \$\(pwd\)\ -type\ f\ \|\ while\ IFS=\ read\ -r\ file\;\ do\ pretify\ \"\$file\"\ \&\&\ echo\ \;done
-builtin alias prettier=nvim\ --headless\ +\"lua\ require\(\\"conform\\"\).format\(\)\"\ +wq
-builtin alias pretify=nvim\ --headless\ +\"lua\ require\(\\\"conform\\\"\).format\(\)\"\ +wq
+builtin alias prettifyPWD=find\ \$\(pwd\)\ -type\ f\ \|\ while\ IFS=\ read\ -r\ file\;\ do\ pretify\ \"\$file\"\ \&\&\ echo\ \;done
+builtin alias liveserverstart=nvim\ --headless\ +\"LiveServerStart\"
+builtin alias prettify=nvim\ --headless\ +\"lua\ require\(\\"conform\\"\).format\(\)\"\ +wq
