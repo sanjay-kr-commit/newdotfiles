@@ -10,3 +10,4 @@ env_flags
 loadBins
 tmux_terminal
 activateVenv
+gocryptfs
